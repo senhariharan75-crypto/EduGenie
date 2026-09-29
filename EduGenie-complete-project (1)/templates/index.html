@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EduGenie — AI Learning Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <span class="badge">AI LEARNING ASSISTANT</span>
+        <h1>EduGenie</h1>
+        <p>Ask, understand, summarize, quiz, and build a learning path with AI.</p>
+      </div>
+      <div id="health" class="status">Checking API…</div>
+    </header>
+
+    <section class="card">
+      <div class="controls">
+        <label>Task
+          <select id="task">
+            <option value="qa">Ask a Question</option>
+            <option value="explain">Explain a Topic</option>
+            <option value="quiz">Generate Quiz</option>
+            <option value="summarize">Summarize</option>
+            <option value="learn">Learning Path</option>
+          </select>
+        </label>
+        <label id="levelWrap" class="hidden">Level
+          <select id="level"><option>beginner</option><option>intermediate</option><option>advanced</option></select>
+        </label>
+        <label id="weeksWrap" class="hidden">Weeks
+          <input id="weeks" type="number" min="1" max="52" value="6">
+        </label>
+      </div>
+      <label for="inputText">Your input</label>
+      <textarea id="inputText" rows="9" placeholder="Example: Explain the OSI model in simple terms."></textarea>
+      <div class="actions">
+        <button id="submitBtn">Run EduGenie</button>
+        <button id="clearBtn" class="secondary">Clear</button>
+      </div>
+      <div id="error" class="error hidden"></div>
+    </section>
+
+    <section id="result" class="card result hidden">
+      <div class="resultHead"><h2>Result</h2><button id="copyBtn" class="secondary">Copy</button></div>
+      <div id="resultBody"></div>
+    </section>
+  </main>
+  <script src="{{ url_for('static', path='app.js') }}"></script>
+</body>
+</html>
